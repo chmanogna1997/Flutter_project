@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "317808850895",
+    "project_id": "flutterfire-ui-codelab-bdbff",
+    "storage_bucket": "flutterfire-ui-codelab-bdbff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317808850895:android:3ef3604ebe621004cb44ba",
+        "android_client_info": {
+          "package_name": "com.example.complete"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "317808850895-c4ovdgtfg3kul4kodtu0nf4cn7e3nht3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-KBZeMvdMtFDNhCU6YOx3j3zV2B_bBb4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "317808850895-c4ovdgtfg3kul4kodtu0nf4cn7e3nht3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
