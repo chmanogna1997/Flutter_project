@@ -16,6 +16,8 @@ dependencies:
   google_sign_in: ^5.4.0
   firebase_core_platform_interface: 4.5.1
   firebase_messaging: ^13.0.4 # 
+  validate: ^1.7.0
+  dropdown_button2: ^1.9.1
 
 dev_dependencies:
   flutter_test:
@@ -32,6 +34,7 @@ flutter:
   assets:
     - assets/flutterfire_300x.png
     - assets/dash.png
+    - assets/garagesale.jpeg
     
 
 

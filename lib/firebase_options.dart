@@ -44,39 +44,42 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDmOb-aZsQe1jWoXOOHwWe2L25FcuVABx0',
-    appId: '1:317808850895:web:4520cb7fa008d88dcb44ba',
-    messagingSenderId: '317808850895',
-    projectId: 'flutterfire-ui-codelab-bdbff',
-    authDomain: 'flutterfire-ui-codelab-bdbff.firebaseapp.com',
-    storageBucket: 'flutterfire-ui-codelab-bdbff.appspot.com',
+    apiKey: 'AIzaSyCb9u3M4eZccXM6sl47g_Ps4fL6mPAjFw0',
+    appId: '1:521034271601:web:eda814e67ba34e3d6744d0',
+    messagingSenderId: '521034271601',
+    projectId: 'neu-fall-2022-2',
+    authDomain: 'neu-fall-2022-2.firebaseapp.com',
+    storageBucket: 'neu-fall-2022-2.appspot.com',
+    measurementId: 'G-NY0GYZD530',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyD-KBZeMvdMtFDNhCU6YOx3j3zV2B_bBb4',
-    appId: '1:317808850895:android:3ef3604ebe621004cb44ba',
-    messagingSenderId: '317808850895',
-    projectId: 'flutterfire-ui-codelab-bdbff',
-    storageBucket: 'flutterfire-ui-codelab-bdbff.appspot.com',
+    apiKey: 'AIzaSyCw2XIyRgsYud-VAEMBHMgPC55xqzDjJqc',
+    appId: '1:521034271601:android:c9c0d081089235346744d0',
+    messagingSenderId: '521034271601',
+    projectId: 'neu-fall-2022-2',
+    storageBucket: 'neu-fall-2022-2.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBIHepeOsKT3ix6-FSkqown3ty7-GK32N0',
-    appId: '1:317808850895:ios:857fc86ff1638865cb44ba',
-    messagingSenderId: '317808850895',
-    projectId: 'flutterfire-ui-codelab-bdbff',
-    storageBucket: 'flutterfire-ui-codelab-bdbff.appspot.com',
-    iosClientId: '317808850895-la3jll0mt60ds7s1rr3e243homfa052e.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDG6YATyqKR5t_RgbzkN3szndVpv2KXv9I',
+    appId: '1:521034271601:ios:1c13d741a2954bde6744d0',
+    messagingSenderId: '521034271601',
+    projectId: 'neu-fall-2022-2',
+    storageBucket: 'neu-fall-2022-2.appspot.com',
+    androidClientId: '521034271601-06a0bv8gbvr5410k3ia3tc9tki6i0l60.apps.googleusercontent.com',
+    iosClientId: '521034271601-5tl0m2k9o4m14qh9mm38if5m2pbsihkk.apps.googleusercontent.com',
     iosBundleId: 'com.example.complete',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBIHepeOsKT3ix6-FSkqown3ty7-GK32N0',
-    appId: '1:317808850895:ios:857fc86ff1638865cb44ba',
-    messagingSenderId: '317808850895',
-    projectId: 'flutterfire-ui-codelab-bdbff',
-    storageBucket: 'flutterfire-ui-codelab-bdbff.appspot.com',
-    iosClientId: '317808850895-la3jll0mt60ds7s1rr3e243homfa052e.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDG6YATyqKR5t_RgbzkN3szndVpv2KXv9I',
+    appId: '1:521034271601:ios:1c13d741a2954bde6744d0',
+    messagingSenderId: '521034271601',
+    projectId: 'neu-fall-2022-2',
+    storageBucket: 'neu-fall-2022-2.appspot.com',
+    androidClientId: '521034271601-06a0bv8gbvr5410k3ia3tc9tki6i0l60.apps.googleusercontent.com',
+    iosClientId: '521034271601-5tl0m2k9o4m14qh9mm38if5m2pbsihkk.apps.googleusercontent.com',
     iosBundleId: 'com.example.complete',
   );
 }

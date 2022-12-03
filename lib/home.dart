@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
                        padding: const EdgeInsets.all(2),
                        child: AspectRatio(
                          aspectRatio: 1,
-                         child: Image.asset('assets/flutterfire_300x.png'),
+                         child: Image.asset('assets/garagesale.jpeg'),
                        ),
                      ),
                    ],

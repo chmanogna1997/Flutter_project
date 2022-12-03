@@ -1,34 +1,85 @@
 {
   "project_info": {
-    "project_number": "317808850895",
-    "project_id": "flutterfire-ui-codelab-bdbff",
-    "storage_bucket": "flutterfire-ui-codelab-bdbff.appspot.com"
+    "project_number": "521034271601",
+    "project_id": "neu-fall-2022-2",
+    "storage_bucket": "neu-fall-2022-2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:317808850895:android:3ef3604ebe621004cb44ba",
+        "mobilesdk_app_id": "1:521034271601:android:c9c0d081089235346744d0",
         "android_client_info": {
           "package_name": "com.example.complete"
         }
       },
       "oauth_client": [
         {
-          "client_id": "317808850895-c4ovdgtfg3kul4kodtu0nf4cn7e3nht3.apps.googleusercontent.com",
+          "client_id": "521034271601-v5h10bv87r2u2r4o59q3lgl8v6kfrg31.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD-KBZeMvdMtFDNhCU6YOx3j3zV2B_bBb4"
+          "current_key": "AIzaSyCw2XIyRgsYud-VAEMBHMgPC55xqzDjJqc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "317808850895-c4ovdgtfg3kul4kodtu0nf4cn7e3nht3.apps.googleusercontent.com",
+              "client_id": "521034271601-v5h10bv87r2u2r4o59q3lgl8v6kfrg31.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "521034271601-5tl0m2k9o4m14qh9mm38if5m2pbsihkk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.complete"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521034271601:android:5c36aa61159468e96744d0",
+        "android_client_info": {
+          "package_name": "com.taral.neufall2022todo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521034271601-06a0bv8gbvr5410k3ia3tc9tki6i0l60.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.taral.neufall2022todo",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "521034271601-v5h10bv87r2u2r4o59q3lgl8v6kfrg31.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw2XIyRgsYud-VAEMBHMgPC55xqzDjJqc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521034271601-v5h10bv87r2u2r4o59q3lgl8v6kfrg31.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "521034271601-5tl0m2k9o4m14qh9mm38if5m2pbsihkk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.complete"
+              }
             }
           ]
         }
