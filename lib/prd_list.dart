@@ -151,6 +151,7 @@ class PrdListScreen extends StatelessWidget {
             // ignore: unused_local_variable
             var itemPrice = dollar_symbol + _prdList[index].price.toString();
             return ListTile(
+              minVerticalPadding: 24,
               leading: Hero(
                 tag: note.image,
                 child: CircleAvatar(
@@ -171,7 +172,12 @@ class PrdListScreen extends StatelessWidget {
                   ),
                 );
               },
+              
             );
+            // SizedBox(width: 50);// give it width
+
+            
+
           }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
