@@ -44,42 +44,46 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCb9u3M4eZccXM6sl47g_Ps4fL6mPAjFw0',
-    appId: '1:521034271601:web:eda814e67ba34e3d6744d0',
-    messagingSenderId: '521034271601',
-    projectId: 'neu-fall-2022-2',
-    authDomain: 'neu-fall-2022-2.firebaseapp.com',
-    storageBucket: 'neu-fall-2022-2.appspot.com',
-    measurementId: 'G-NY0GYZD530',
+    apiKey: 'AIzaSyDwxj6_g5I0KAWEprgdLbaBBt4WvjI3xr0',
+    appId: '1:40343468216:web:286f03923194fabac81c4d',
+    messagingSenderId: '40343468216',
+    projectId: 'neu-fall-2022',
+    authDomain: 'neu-fall-2022.firebaseapp.com',
+    databaseURL: 'https://neu-fall-2022-default-rtdb.firebaseio.com',
+    storageBucket: 'neu-fall-2022.appspot.com',
+    measurementId: 'G-SEP6LCFY7E',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCw2XIyRgsYud-VAEMBHMgPC55xqzDjJqc',
-    appId: '1:521034271601:android:c9c0d081089235346744d0',
-    messagingSenderId: '521034271601',
-    projectId: 'neu-fall-2022-2',
-    storageBucket: 'neu-fall-2022-2.appspot.com',
+    apiKey: 'AIzaSyAxYYsghqa0PLXQB-kiBRLYSbnET5NWuD4',
+    appId: '1:40343468216:android:5f21a3f8481051a7c81c4d',
+    messagingSenderId: '40343468216',
+    projectId: 'neu-fall-2022',
+    databaseURL: 'https://neu-fall-2022-default-rtdb.firebaseio.com',
+    storageBucket: 'neu-fall-2022.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDG6YATyqKR5t_RgbzkN3szndVpv2KXv9I',
-    appId: '1:521034271601:ios:1c13d741a2954bde6744d0',
-    messagingSenderId: '521034271601',
-    projectId: 'neu-fall-2022-2',
-    storageBucket: 'neu-fall-2022-2.appspot.com',
-    androidClientId: '521034271601-06a0bv8gbvr5410k3ia3tc9tki6i0l60.apps.googleusercontent.com',
-    iosClientId: '521034271601-5tl0m2k9o4m14qh9mm38if5m2pbsihkk.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCTMCdgzeAen_KUk0SoXOxw_Q0jOcIl86w',
+    appId: '1:40343468216:ios:88b2041089901988c81c4d',
+    messagingSenderId: '40343468216',
+    projectId: 'neu-fall-2022',
+    databaseURL: 'https://neu-fall-2022-default-rtdb.firebaseio.com',
+    storageBucket: 'neu-fall-2022.appspot.com',
+    androidClientId: '40343468216-2hk67qcmukkk1ei899b164rag361hqs6.apps.googleusercontent.com',
+    iosClientId: '40343468216-ihbkjbup5brv7h8auq6h9tm15do6obtr.apps.googleusercontent.com',
     iosBundleId: 'com.example.complete',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDG6YATyqKR5t_RgbzkN3szndVpv2KXv9I',
-    appId: '1:521034271601:ios:1c13d741a2954bde6744d0',
-    messagingSenderId: '521034271601',
-    projectId: 'neu-fall-2022-2',
-    storageBucket: 'neu-fall-2022-2.appspot.com',
-    androidClientId: '521034271601-06a0bv8gbvr5410k3ia3tc9tki6i0l60.apps.googleusercontent.com',
-    iosClientId: '521034271601-5tl0m2k9o4m14qh9mm38if5m2pbsihkk.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCTMCdgzeAen_KUk0SoXOxw_Q0jOcIl86w',
+    appId: '1:40343468216:ios:88b2041089901988c81c4d',
+    messagingSenderId: '40343468216',
+    projectId: 'neu-fall-2022',
+    databaseURL: 'https://neu-fall-2022-default-rtdb.firebaseio.com',
+    storageBucket: 'neu-fall-2022.appspot.com',
+    androidClientId: '40343468216-2hk67qcmukkk1ei899b164rag361hqs6.apps.googleusercontent.com',
+    iosClientId: '40343468216-ihbkjbup5brv7h8auq6h9tm15do6obtr.apps.googleusercontent.com',
     iosBundleId: 'com.example.complete',
   );
 }

@@ -8,6 +8,13 @@ class HomeScreen extends StatelessWidget {
  Widget build(BuildContext context) {
    return Scaffold(
      appBar: AppBar(
+       leading: BackButton(
+          color: Colors.white,
+          onPressed: () {
+          Navigator.pop(context);
+        },),
+      title: new Text('lets signout'),
+
        actions: [
          IconButton(
            icon: const Icon(Icons.person),

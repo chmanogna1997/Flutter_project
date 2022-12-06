@@ -143,6 +143,11 @@ class PrdListScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Let's Shop!!!!"),
+         leading: BackButton(
+          color: Colors.white,
+          onPressed: () {
+          Navigator.pop(context);
+        },),
       ),
       body: ListView.builder(
           itemCount: _prdList.length,

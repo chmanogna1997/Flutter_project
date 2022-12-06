@@ -57,7 +57,7 @@ class AuthGate extends StatelessWidget {
            },
          );
        }
-
+      // return HomeScreen();
        return PrdListScreen();
      },
    );
