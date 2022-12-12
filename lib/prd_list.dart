@@ -4,168 +4,89 @@ import 'prd_details.dart';
 import 'prd_details_strcu.dart';
 import 'form.dart';
 
-class PrdListScreen extends StatelessWidget {
-  PrdListScreen({Key? key}) : super(key: key);
+// getting home dart screen
+import 'home.dart';
+// for firestore
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-  final List<PrdDetailStruc> _prdList = [
-    PrdDetailStruc(
-        title: 'Ball',
-        price: 10,
-        image: "dash.png",
-        desc: "Ball nothing great nothing great 1",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Chair',
-        price: 20,
-        image: "dash.png",
-        desc: "nothing gret nothing great 2",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Bat',
-        price: 30,
-        image: "dash.png",
-        desc: "nothing gret nothing great 3",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Ball',
-        price: 40,
-        image: "dash.png",
-        desc: "Ball nothing great nothing great 4",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Chair',
-        price: 50,
-        image: "dash.png",
-        desc: "nothing gret nothing great 5",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Ball',
-        price: 60,
-        image: "dash.png",
-        desc: "Ball nothing great nothing great 6",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Chair',
-        price: 70,
-        image: "dash.png",
-        desc: "nothing gret nothing great 7",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Ball',
-        price: 80,
-        image: "dash.png",
-        desc: "Ball nothing great nothing great 8",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Chair',
-        price: 90,
-        image: "dash.png",
-        desc: "nothing gret nothing great 9",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Ball',
-        price: 10,
-        image: "dash.png",
-        desc: "Ball nothing great nothing great 10",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Chair',
-        price: 20,
-        image: "dash.png",
-        desc: "nothing gret nothing great 11",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Ball',
-        price: 10,
-        image: "dash.png",
-        desc: "Ball nothing great nothing great 12",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Chair',
-        price: 20,
-        image: "dash.png",
-        desc: "nothing gret nothing great 13",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Ball',
-        price: 10,
-        image: "dash.png",
-        desc: "Ball nothing great nothing great 14",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Chair',
-        price: 20,
-        image: "dash.png",
-        desc: "nothing gret nothing great 15",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Ball',
-        price: 10,
-        image: "dash.png",
-        desc: "Ball nothing great nothing great 16",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Chair',
-        price: 20,
-        image: "dash.png",
-        desc: "nothing gret nothing great 17",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Ball',
-        price: 10,
-        image: "dash.png",
-        desc: "Ball nothing great nothing great 18",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Chair',
-        price: 20,
-        image: "dash.png",
-        desc: "nothing gret nothing great 19",
-        condition: "good"),
-    PrdDetailStruc(
-        title: 'Ball',
-        price: 10,
-        image: "dash.png",
-        desc: "Ball nothing great nothing great 20",
-        condition: "bad"),
-    PrdDetailStruc(
-        title: 'Chair',
-        price: 20,
-        image: "dash.png",
-        desc: "nothing gret nothing great 21",
-        condition: "worse"),
-  ];
+
+
+ class PrdListScreen extends StatefulWidget {
+  const PrdListScreen({super.key});
+  @override
+  _PrdListScreenState createState() => _PrdListScreenState();
+}
+class _PrdListScreenState extends State<PrdListScreen> {
+  CollectionReference _reference = FirebaseFirestore.instance.collection('chsm_item_data');
+  late Stream<QuerySnapshot> _stream_data;
 
   String dollar_symbol = "\$ ";
+  @override
+  void initState() {
+    // implement initState
+    super.initState();
+    _stream_data = _reference.snapshots();
+  }
+  
+
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+     return Scaffold(
       appBar: AppBar(
         title: Text("Let's Shop!!!!"),
-         leading: BackButton(
-          color: Colors.white,
-          onPressed: () {
-          Navigator.pop(context);
-        },),
+         actions: [
+          IconButton(
+           icon: const Icon(Icons.person),
+           onPressed: () {
+
+            Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const HomeScreen()),
+  );}),
+         ],
       ),
-      body: ListView.builder(
+
+      body: StreamBuilder<QuerySnapshot>(
+        stream: _stream_data ,
+        builder: (BuildContext context, AsyncSnapshot snapshot){
+          if(snapshot.hasError){
+            return Center( child : Text(snapshot.error.toString()));
+          }
+          if(snapshot.connectionState == ConnectionState.active){
+           QuerySnapshot querySnapshot = snapshot.data;
+           List<QueryDocumentSnapshot> documents = querySnapshot.docs;
+
+           List<Map> _prdList = documents.map((e) =>
+            {
+              'id': e.id,
+              'item': e['item'],
+              'price': e['price'],
+              'condition': e['condition'],
+              'desc': e['desc'],
+              'email': e['email'],
+              'image':e['imageUrl']
+            }).toList();
+
+
+            return ListView.builder(
           itemCount: _prdList.length,
           itemBuilder: (context, index) {
-            final note = _prdList[index];
+            Map note= _prdList[index];
+
             // ignore: unused_local_variable
-            var itemPrice = dollar_symbol + _prdList[index].price.toString();
+            var itemPrice = dollar_symbol + note['price'].toString();
             return ListTile(
               minVerticalPadding: 24,
               leading: Hero(
-                tag: note.image,
+                tag: '${note['image']}',
                 child: CircleAvatar(
                   radius: 40,
-                  backgroundImage: Image.asset('assets/${note.image}').image,
+                  backgroundImage: Image.network(note['image']).image,
                 ),
               ),
               title: Text(
-                _prdList[index].title,
+                '${note['item']}',
               ),
               trailing: Text(itemPrice),
               onTap: () {
@@ -173,18 +94,25 @@ class PrdListScreen extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        PrdDetailsScreen(prdDetail: _prdList[index]),
+                        PrdDetailsScreen(imageUrl: note['image'], item: note['item'], price: note['price'], condition: note['condition'], email: note['email'],),
                   ),
                 );
               },
               
             );
-            // SizedBox(width: 50);// give it width
+            SizedBox(width: 50);// give it width
 
             
 
-          }),
-      floatingActionButton: FloatingActionButton(
+          });
+          }
+
+          return Center(child: CircularProgressIndicator());
+        } ,
+      ),
+
+
+ floatingActionButton: FloatingActionButton(
         onPressed: () {
           // Add your onPressed  navigates to form screen(form.dart page)
           Navigator.push(
@@ -194,6 +122,6 @@ class PrdListScreen extends StatelessWidget {
         },
         child: const Icon(Icons.add),
       ),
-    );
+     );
   }
 }

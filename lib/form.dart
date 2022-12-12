@@ -7,10 +7,10 @@ import 'dart:io';
 // to add image to storage
 import 'package:firebase_storage/firebase_storage.dart';
 // for camera
-import 'package:camera/camera.dart';
+// import 'package:camera/camera.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:path/path.dart' as Path;
-import 'package:path_provider/path_provider.dart';
+// import 'package:path/path.dart' as Path;
+// import 'package:path_provider/path_provider.dart';
 // to get user details
 import 'package:firebase_auth/firebase_auth.dart';
 // for firestore
@@ -153,15 +153,15 @@ fieldText_price.clear(),
 
 
 
-  Widget _buttonRow(){
-    return Row(
-      children: [
-        ElevatedButton(onPressed: () {
-           _showSelectionDialog(context);
-        }, child: const Icon(Icons.add),)
-      ],
-    );
-  }
+  // Widget _buttonRow(){
+  //   return Row(
+  //     children: [
+  //       ElevatedButton(onPressed: () {
+  //          _showSelectionDialog(context);
+  //       }, child: const Icon(Icons.add),)
+  //     ],
+  //   );
+  // }
 
   Widget _setImageView() {
     if (imageFile != null) {
@@ -276,7 +276,7 @@ fieldText_price.clear(),
                     onChanged: ((value) => {
                       print(" saved value is"),
                       print(value),
-                      this._data.item = value!,
+                      this._data.item = value,
                     }),
                     controller: fieldText_item
                      ),
@@ -349,7 +349,7 @@ fieldText_price.clear(),
                     maxLines: 4,
                     
                       validator: (value) { if (value == null || value.isEmpty) { return 'Please enter description'; } return null;},
-                      onChanged: (value) => {this._data.desc = value!},
+                      onChanged: (value) => {this._data.desc = value},
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.symmetric(horizontal: 2, vertical: 20) ,
                         border: OutlineInputBorder(),

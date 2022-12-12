@@ -6,7 +6,7 @@ import 'firebase_options.dart';
 
 
 
-// TODO(codelab user): Get API key
+// (codelab user): Get API key
 const clientId = 'YOUR_CLIENT_ID';
 
 void main() async {
