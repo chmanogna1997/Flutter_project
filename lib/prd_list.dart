@@ -79,10 +79,10 @@ class _PrdListScreenState extends State<PrdListScreen> {
             return ListTile(
               minVerticalPadding: 24,
               leading: Hero(
-                tag: '${note['image']}',
+                tag: '${note['image'][0]}',
                 child: CircleAvatar(
-                  radius: 40,
-                  backgroundImage: Image.network(note['image']).image,
+                  radius: 50,
+                  backgroundImage: Image.network(note['image'][0]).image,
                 ),
               ),
               title: Text(

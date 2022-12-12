@@ -35,7 +35,7 @@ class _FormData {
   String price = '';
   String condition = '';
   String desc = '';
-  String imageUrl = '';
+  List imageUrl = [];
   String email = '';
 }
 
@@ -57,6 +57,9 @@ class _FormScreenState extends State<FormScreen> {
   ];
   String? selectedValue;
   XFile? imageFile;
+  XFile? imageFile1;
+  XFile? imageFile2;
+  XFile? imageFile3;
 
   bool item_added = false;
 
@@ -80,7 +83,7 @@ class _FormScreenState extends State<FormScreen> {
     // data_added = false;
 
     //Check Permissions
-          if (imageFile != null){
+          if (imageFile != null && imageFile1 != null && imageFile2 !=null && imageFile3 != null){
 // getting image file name
             List values = (imageFile!.path).split("/");
 // to upload the image and get download ur
@@ -88,7 +91,31 @@ class _FormScreenState extends State<FormScreen> {
             var downloadUrl = await snapshot.ref.getDownloadURL();
             print("****************** download url ia *****");
             print(downloadUrl);
-            _data.imageUrl = downloadUrl;
+            _data.imageUrl.add(downloadUrl);
+
+            // image 1
+            if(imageFile1 != null){
+              List values1 = (imageFile1!.path).split("/");
+              var snapshot1 = await _firebaseStorage.ref().child('chsam_finalproject/' + values1.last).putFile(File(imageFile1!.path));
+              var downloadUrl1 = await snapshot1.ref.getDownloadURL();
+              _data.imageUrl.add(downloadUrl1);
+            }
+
+             // image 2
+            if(imageFile2 != null){
+              List values2 = (imageFile2!.path).split("/");
+              var snapshot2 = await _firebaseStorage.ref().child('chsam_finalproject/' + values2.last).putFile(File(imageFile2!.path));
+              var downloadUrl2 = await snapshot2.ref.getDownloadURL();
+              _data.imageUrl.add(downloadUrl2);
+            }
+
+             // image 3
+            if(imageFile3 != null){
+              List values3 = (imageFile3!.path).split("/");
+              var snapshot3 = await _firebaseStorage.ref().child('chsam_finalproject/' + values3.last).putFile(File(imageFile3!.path));
+              var downloadUrl3 = await snapshot3.ref.getDownloadURL();
+              _data.imageUrl.add(downloadUrl3);
+            }
 
 // get use loged in details
           print('************* email is ************');
@@ -122,6 +149,9 @@ fieldText_price.clear(),
 
  setState(() {
    imageFile  = null;
+   imageFile1 = null;
+   imageFile2 = null;
+   imageFile3 = null;
    item_added = true;
  }),
 
@@ -130,20 +160,6 @@ fieldText_price.clear(),
     // print(" ********* DATA ADDED YES *******************");
     // print(' ********************** DATA ADDED DocumentSnapshot added with ID: ${doc.id}'))
 
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
           }else{
             print("no image received");
           }
@@ -151,45 +167,249 @@ fieldText_price.clear(),
 
 // ******************************************* Camera Section ********************************************
 
+// image 3
+Widget _setImageView3() {
+    if (imageFile3 != null) {
+      print(" *********************** path is ************************************ " );
+      print(imageFile3!.path);
+      return Padding(
+        padding: EdgeInsets.all(10),
+        child: Image.file(File(imageFile3!.path), width: 100, height: 100)
+        );
+      
+    } else {
+      return Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Please select image !!!!",
+        style: TextStyle(
+          fontSize: 10,
+          color: Colors.red
+          ),
+        
+        ),
+      );
+      //Text("Please select an image");
+    }
+  }
 
 
-  // Widget _buttonRow(){
-  //   return Row(
-  //     children: [
-  //       ElevatedButton(onPressed: () {
-  //          _showSelectionDialog(context);
-  //       }, child: const Icon(Icons.add),)
-  //     ],
-  //   );
-  // }
+
+// image 2
+Widget _setImageView2() {
+    if (imageFile2 != null) {
+      print(" *********************** path is ************************************ " );
+      print(imageFile2!.path);
+      return Padding(
+        padding: EdgeInsets.all(10),
+        child: Image.file(File(imageFile2!.path), width: 100, height: 100)
+        );
+      
+    } else {
+      return Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Please select image !!!!",
+        style: TextStyle(
+          fontSize: 10,
+          color: Colors.red
+          ),
+        
+        ),
+      );
+      //Text("Please select an image");
+    }
+  }
+
+//  image 1
+Widget _setImageView1() {
+    if (imageFile1 != null) {
+      print(" *********************** path is ************************************ " );
+      print(imageFile1!.path);
+      return Padding(
+        padding: EdgeInsets.all(10),
+        child: Image.file(File(imageFile1!.path), width: 100, height: 100)
+        );
+      
+    } else {
+      return Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Please select image !!!!",
+        style: TextStyle(
+          fontSize: 10,
+          color: Colors.red
+          ),
+        
+        ),
+      );
+      //Text("Please select an image");
+    }
+  }
+
+//  image 
 
   Widget _setImageView() {
     if (imageFile != null) {
       print(" *********************** path is ************************************ " );
       print(imageFile!.path);
       return Padding(
-        padding: EdgeInsets.all(20),
-        child: Image.file(File(imageFile!.path), width: 200, height: 200)
+        padding: EdgeInsets.all(10),
+        child: Image.file(File(imageFile!.path), width: 100, height: 100)
         );
       
     } else {
       return Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(10.0),
         child: Text("Please select image !!!!",
         style: TextStyle(
-          fontSize: 20,
+          fontSize: 10,
           color: Colors.red
           ),
         
         ),
       );
-      
-      
-      
       //Text("Please select an image");
     }
   }
 
+
+
+
+// for image 3
+void _openGallery3(BuildContext context) async {
+    var picture = await ImagePicker().pickImage(source: ImageSource.gallery);
+    this.setState(() {
+      imageFile3 = picture;
+    });
+    Navigator.of(context).pop();
+  }
+
+  void _openCamera3(BuildContext context) async {
+    var picture = await ImagePicker().pickImage(source: ImageSource.camera);
+    this.setState(() {
+      imageFile3 = picture;
+    });
+    Navigator.of(context).pop();
+  }
+
+
+  Future<void> _showSelectionDialog3(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+              title: Text("From where do you want to take the photo?"),
+              content: SingleChildScrollView(
+                child: ListBody(
+                  children: <Widget>[
+                    GestureDetector(
+                      child: Text("Gallery"),
+                      onTap: () {
+                        _openGallery3(context);
+                      },
+                    ),
+                    Padding(padding: EdgeInsets.all(8.0)),
+                    GestureDetector(
+                      child: Text("Camera"),
+                      onTap: () {
+                        _openCamera3(context);
+                      },
+                    )
+                  ],
+                ),
+              ));
+        });
+  }
+// img count 2
+void _openGallery2(BuildContext context) async {
+    var picture = await ImagePicker().pickImage(source: ImageSource.gallery);
+    this.setState(() {
+      imageFile2 = picture;
+    });
+    Navigator.of(context).pop();
+  }
+
+  void _openCamera2(BuildContext context) async {
+    var picture = await ImagePicker().pickImage(source: ImageSource.camera);
+    this.setState(() {
+      imageFile2 = picture;
+    });
+    Navigator.of(context).pop();
+  }
+
+
+  Future<void> _showSelectionDialog2(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+              title: Text("From where do you want to take the photo?"),
+              content: SingleChildScrollView(
+                child: ListBody(
+                  children: <Widget>[
+                    GestureDetector(
+                      child: Text("Gallery"),
+                      onTap: () {
+                        _openGallery2(context);
+                      },
+                    ),
+                    Padding(padding: EdgeInsets.all(8.0)),
+                    GestureDetector(
+                      child: Text("Camera"),
+                      onTap: () {
+                        _openCamera2(context);
+                      },
+                    )
+                  ],
+                ),
+              ));
+        });
+  }
+
+// imge 1
+  void _openGallery1(BuildContext context) async {
+    var picture = await ImagePicker().pickImage(source: ImageSource.gallery);
+    this.setState(() {
+      imageFile1 = picture;
+    });
+    Navigator.of(context).pop();
+  }
+
+  void _openCamera1(BuildContext context) async {
+    var picture = await ImagePicker().pickImage(source: ImageSource.camera);
+    this.setState(() {
+      imageFile1 = picture;
+    });
+    Navigator.of(context).pop();
+  }
+
+
+  Future<void> _showSelectionDialog1(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+              title: Text("From where do you want to take the photo?"),
+              content: SingleChildScrollView(
+                child: ListBody(
+                  children: <Widget>[
+                    GestureDetector(
+                      child: Text("Gallery"),
+                      onTap: () {
+                        _openGallery1(context);
+                      },
+                    ),
+                    Padding(padding: EdgeInsets.all(8.0)),
+                    GestureDetector(
+                      child: Text("Camera"),
+                      onTap: () {
+                        _openCamera1(context);
+                      },
+                    )
+                  ],
+                ),
+              ));
+        });
+  }
+// first image
   void _openGallery(BuildContext context) async {
     var picture = await ImagePicker().pickImage(source: ImageSource.gallery);
     this.setState(() {
@@ -365,11 +585,22 @@ fieldText_price.clear(),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      _setImageView(),
+
+                      new Row(
+                        children: [_setImageView(), Spacer(), _setImageView1()],
+                      ),
+                      new Row(
+                        children: [_setImageView2(),Spacer(), _setImageView3()],
+                        ),
                       new Row(
                         mainAxisAlignment: MainAxisAlignment.center ,//Center Row contents horizontally,
                         crossAxisAlignment: CrossAxisAlignment.center, //Center Row contents vertically,
-                        children: [ElevatedButton( onPressed: () { _showSelectionDialog(context); }, child: const Icon(Icons.add),),],
+                        children: [
+                          ElevatedButton( onPressed: () { _showSelectionDialog(context); }, child: const Icon(Icons.add),),Spacer(),
+                           ElevatedButton( onPressed: () { _showSelectionDialog1(context); }, child: const Icon(Icons.add),),Spacer(),
+                           ElevatedButton( onPressed: () { _showSelectionDialog2(context); }, child: const Icon(Icons.add),),Spacer(),
+                           ElevatedButton( onPressed: () { _showSelectionDialog3(context); }, child: const Icon(Icons.add),),
+                          ],
                         )
                         ],),),
 
@@ -384,12 +615,12 @@ fieldText_price.clear(),
                     ),
                     onPressed: () =>  {
                       // Validate returns true if the form is valid, or false otherwise.
-                if (_formKey.currentState!.validate() && selectedValue != null  && imageFile != null) {
+                if (_formKey.currentState!.validate() && selectedValue != null  && imageFile != null && imageFile1 != null && imageFile2 != null && imageFile3 != null) {
                   // If the form is valid, display a snackbar. In the real world,
                   // you'd often call a server or save the information in a database.
 
                   this._data.condition = selectedValue!,
-                  this._data.imageUrl = imageFile!.path,
+                  // this._data.imageUrl = imageFile!.path,
 
 
 

@@ -1,8 +1,12 @@
+import 'package:complete/auth_gate.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/auth.dart';
 
 class HomeScreen extends StatelessWidget {
  const HomeScreen({super.key});
+
+
 
  @override
  Widget build(BuildContext context) {
@@ -57,7 +61,15 @@ class HomeScreen extends StatelessWidget {
              'Welcome!',
              style: Theme.of(context).textTheme.displaySmall,
            ),
-           const SignOutButton(),
+           ElevatedButton(onPressed:() {
+              Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const AuthGate()),
+  );
+
+  FirebaseAuth.instance.signOut();
+
+           }, child: Text('sign out'))
          ],
        ),
      ),
